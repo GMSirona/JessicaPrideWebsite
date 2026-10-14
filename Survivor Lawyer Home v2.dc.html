@@ -333,8 +333,15 @@ class Component extends DCLogic {
     window.addEventListener('keydown', this.onKey);
     const v = document.querySelector('[data-hero-video]');
     if (v) {
-      v.muted = true; v.loop = true;
+      v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', ''); v.setAttribute('autoplay', '');
+      const kick = () => v.play().catch(() => {});
+      ['touchstart', 'scroll', 'click'].forEach(ev => window.addEventListener(ev, kick, { once: true, passive: true }));
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
       v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); });
+      const fallback = () => { if (v.dataset.fb) return; v.dataset.fb = '1'; v.src = 'assets/hero.mp4'; v.load(); v.play().catch(() => {}); };
+      v.addEventListener('error', fallback);
+      setTimeout(() => { if (v.readyState < 2) fallback(); }, 3500);
       v.play().catch(() => {});
     }
   }
