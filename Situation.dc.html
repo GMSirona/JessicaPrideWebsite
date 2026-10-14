@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<dc-import name="Site Header" active="what" hint-size="100%,84px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));">
+    <div style="padding: clamp(56px, 7vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px; justify-content: center;">
+      <a href="What%20Happened.dc.html" style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3; text-decoration: none;" style-hover="color: #fff;">← WHAT HAPPENED</a>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(48px, 5.8vw, 88px); line-height: 0.96; letter-spacing: -0.015em;">{{ s.title }}</h1>
+      <p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.25; color: #f7f2ec;">{{ s.lead }}</p>
+      <p style="margin: 0; font-size: 18px; line-height: 29px; max-width: 48ch; color: #d9cec3;">{{ s.intro }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="Reach%20Out.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Talk privately →</a>
+        <a href="#watch" style="border: 1px solid #f7f2ec; text-decoration: none; font-weight: 500; padding: 15px 24px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #f7f2ec; color: #2a2320;">▶ Watch the video</a>
+      </div>
+    </div>
+    <div style="min-height: clamp(340px, 92vw, 460px); position: relative;"><img src="{{ s.img }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{ s.pos }};"></div>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(66px, 16.7vw, 220px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(56px, 7vw, 96px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px clamp(32px, 5vw, 72px);">
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">WHAT THIS CAN LOOK LIKE</span>
+    <sc-for list="{{ s.looks }}" as="l" hint-placeholder-count="4">
+      <span style="font-size: 17px; line-height: 27px; border-top: 1px solid #d6cabe; padding-top: 14px;">{{ l }}</span>
+    </sc-for>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 14px;">
+    <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">WHO MAY BE RESPONSIBLE</span>
+    <sc-for list="{{ s.who }}" as="w" hint-placeholder-count="4">
+      <span style="font-size: 17px; line-height: 27px; border-top: 1px solid #d6cabe; padding-top: 14px;">{{ w }}</span>
+    </sc-for>
+    <p style="margin: 6px 0 0; font-size: 16px; line-height: 26px; color: #5b4f48;">{{ s.why }}</p>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #2a2320) 18%, color-mix(in oklab, #f7f2ec 50%, #2a2320) 50%, color-mix(in oklab, #f7f2ec 15%, #2a2320) 82%, #2a2320 100%);"></div>
+<section id="watch" style="background: #2a2320; color: #f7f2ec; scroll-margin-top: 90px;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 16px clamp(20px, 4vw, 48px) clamp(56px, 7vw, 96px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 40px clamp(32px, 6vw, 88px); align-items: center;">
+    <div style="aspect-ratio: 16 / 9; background: #1f1a17; position: relative;">
+      <sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+        <iframe referrerPolicy="strict-origin-when-cross-origin" src="{{ embed }}" title="{{ s.videoTitle }}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+      </sc-if>
+      <sc-if value="{{ idle }}" hint-placeholder-val="{{ true }}">
+        <button type="button" onClick="{{ play }}" aria-label="Play video" style="all: unset; cursor: pointer; position: absolute; inset: 0;">
+          <img src="{{ thumb }}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+          <span style="position: absolute; left: 20px; bottom: 20px; background: #e2673e; color: #fff; padding: 13px 20px; font-weight: 500; font-size: 15px;">▶ Play</span>
+        </button>
+      </sc-if>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3;">WATCH · WITH JESSICA</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(36px, 3.8vw, 52px); line-height: 1.04;">{{ s.videoTitle }}</h2>
+      <a href="{{ ytUrl }}" style="align-self: flex-start; font-weight: 500;" style-hover="color: #f29a78;">Watch on YouTube →</a>
+    </div>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #ebe2d8) 18%, color-mix(in oklab, #2a2320 50%, #ebe2d8) 50%, color-mix(in oklab, #2a2320 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+
+<section style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 16px clamp(20px, 4vw, 48px) clamp(56px, 7vw, 96px);">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600; margin-bottom: 14px;">WHAT YOU CAN DO NOW</span>
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(38px, 4vw, 56px); line-height: 1;">Small steps, at your own pace.</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 32px;">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #2a2320; padding-top: 18px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 34px; line-height: 1; color: #e2673e;">{{ st.num }}</span>
+          <span style="font-size: 16px; line-height: 26px;">{{ st.copy }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px;">
+      <a href="What%20Happened.dc.html#deadlines" style="background: #f7f2ec; border: 1px solid #d6cabe; padding: 22px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;" style-hover="background: #fff; border-color: #2a2320; color: #2a2320;"><span style="font-weight: 600;">Is it too late to file? →</span><span style="font-size: 14px; color: #6f625a;">California deadlines in plain language</span></a>
+      <a href="Heal%20and%20Learn.dc.html#self-care" style="background: #f7f2ec; border: 1px solid #d6cabe; padding: 22px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;" style-hover="background: #fff; border-color: #2a2320; color: #2a2320;"><span style="font-weight: 600;">Free self-care videos →</span><span style="font-size: 14px; color: #6f625a;">Calm panic, numbness or shame</span></a>
+      <a href="Heal%20and%20Learn.dc.html#faq" style="background: #f7f2ec; border: 1px solid #d6cabe; padding: 22px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;" style-hover="background: #fff; border-color: #2a2320; color: #2a2320;"><span style="font-weight: 600;">Common questions →</span><span style="font-size: 14px; color: #6f625a;">Cost, privacy, police and more</span></a>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(42px, 10.6vw, 140px); background: linear-gradient(180deg, #ebe2d8, #f7f2ec);"></div>
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(56px, 7vw, 88px);">
+  <span style="display: block; font-size: 13px; letter-spacing: 0.2em; color: #6f625a; margin-bottom: 18px;">OTHER SITUATIONS</span>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1px; background: #d6cabe; border: 1px solid #d6cabe;">
+    <sc-for list="{{ others }}" as="o" hint-placeholder-count="7">
+      <a href="{{ o.href }}" style="background: #f7f2ec; padding: 22px; text-decoration: none; display: flex; justify-content: space-between; gap: 12px; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600;" style-hover="background: #fff; color: #2a2320;"><span>{{ o.title }}</span><span style="color: #e2673e;">→</span></a>
+    </sc-for>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(42px, 10.6vw, 140px); background: linear-gradient(180deg, #f7f2ec, #1f1a17);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { id: null, playing: false };
+  componentDidMount() {
+    this.read = () => {
+      const q = new URLSearchParams(window.location.search).get('s') || window.location.hash.replace('#', '');
+      this.setState({ id: q, playing: false });
+      window.scrollTo(0, 0);
+    };
+    this.read();
+    window.addEventListener('popstate', this.read);
+  }
+  componentWillUnmount() { window.removeEventListener('popstate', this.read); }
+  renderVals() {
+    const DEFAULT_VIDEO = 'MxgsKiGhnNw';
+    const S = {
+      schools: { title: 'Abuse at school', lead: 'Schools are trusted to keep children safe. When they don’t, they can be held responsible.', intro: 'Abuse by a teacher, coach, counselor, staff member or another student, at K–12 schools, colleges, camps and youth programs.', img: 'assets/p10.jpg', pos: '50% 30%',
+        looks: ['A teacher or coach who singled out a student for attention, gifts or private time', 'Grooming through texts, social media or rides home', 'Assault by another student the school was warned about', 'Complaints that were ignored, buried or punished'],
+        who: ['Public school districts', 'Private and religious schools', 'Colleges and universities', 'Youth sports and after-school programs'],
+        why: 'Schools have a legal duty to supervise and to act on warning signs. Teachers and staff are mandated reporters.', video: '', videoTitle: 'What survivors of school abuse should know' },
+      faith: { title: 'Abuse in churches & faith communities', lead: 'Faith leaders hold enormous trust. Using it to abuse is a profound betrayal.', intro: 'Abuse by clergy, youth pastors, ministry leaders or volunteers, in churches, temples, faith-based camps, schools and missions.', img: 'assets/p06.jpg', pos: '50% 30%',
+        looks: ['A clergy member or youth leader who isolated you or your child', 'Abuse disguised as counseling, confession or spiritual guidance', 'Leaders who moved an abuser rather than reporting them', 'Pressure to stay silent to protect the community'],
+        who: ['Churches and congregations', 'Dioceses and denominations', 'Religious orders', 'Faith-based camps, schools and youth groups'],
+        why: 'Many faith organizations knew of abuse and failed to stop it. They can be accountable for what they allowed.', video: '', videoTitle: 'Healing after abuse in a faith community' },
+      medical: { title: 'Abuse by doctors & care providers', lead: 'You trusted them with your body and your health. What they did was not care.', intro: 'Abuse during an exam, treatment or stay, by a doctor, therapist, nurse or staff member at a hospital, clinic, nursing home or treatment center.', img: 'assets/p12.jpg', pos: '50% 50%',
+        looks: ['An exam that was unnecessary, unexplained or sexual', 'Being touched while sedated or alone with a provider', 'A therapist who crossed into a sexual relationship', 'Abuse of a loved one in a care facility'],
+        who: ['Hospitals and medical groups', 'Clinics and private practices', 'Residential treatment and rehab centers', 'Nursing homes and care facilities'],
+        why: 'Facilities must screen, supervise and act on complaints. Many patients report years later. That’s okay.', video: '', videoTitle: 'When a doctor abuses their power' },
+      travel: { title: 'Rideshare & travel assault', lead: 'You should be safe getting home or away. When a company fails you, it can answer for it.', intro: 'Assault by a rideshare driver, a host or a fellow traveler, in a car, a rental, on a plane or a cruise.', img: 'assets/p07.jpg', pos: '50% 40%',
+        looks: ['Assault by an Uber or Lyft driver', 'Assault in an Airbnb or vacation rental, by a host or someone with access', 'Assault on a flight or cruise ship', 'A company that ignored past complaints about the same person'],
+        who: ['Uber, Lyft and other rideshare companies', 'Airbnb, VRBO and property hosts', 'Airlines and cruise lines', 'Tour and travel operators'],
+        why: 'Companies can be responsible for how they screen, monitor and respond. Cruise and airline claims can have short deadlines. Reach out early.', video: '', videoTitle: 'Rideshare and travel assault: your rights' },
+      trafficking: { title: 'Hotels & sex trafficking', lead: 'Trafficking is never your fault. The places that profited from it can be held responsible.', intro: 'Being trafficked, or assaulted at a hotel or motel where staff saw the signs and did nothing.', img: 'assets/p14.jpg', pos: '50% 30%',
+        looks: ['Being forced or coerced into commercial sex', 'Hotels that rented rooms while ignoring obvious signs', 'Staff who were paid or pressured to look away', 'Assault at a hotel with known security problems'],
+        who: ['Hotel brands and franchisors', 'Franchise owners and operators', 'Property managers', 'Websites and businesses that benefited'],
+        why: 'Federal law lets trafficking survivors sue businesses that knowingly benefited, even if they never met the trafficker.', video: '', videoTitle: 'Trafficking survivors deserve justice' },
+      workplace: { title: 'Workplace assault & harassment', lead: 'No job is worth your safety. Speaking up should never cost you your career.', intro: 'Assault or harassment by a supervisor, coworker or client, and retaliation when you spoke up.', img: 'assets/p13.jpg', pos: '50% 40%',
+        looks: ['A boss or coworker who assaulted you', 'Repeated unwanted touching or sexual comments', 'Being demoted, moved or fired after reporting', 'HR that protected the harasser instead of you'],
+        who: ['Employers and companies', 'Staffing agencies', 'Managers who ignored complaints', 'Business owners and clients'],
+        why: 'Employers must prevent and stop harassment. California law also protects you from retaliation for reporting.', video: '', videoTitle: 'What to do after assault at work' },
+      prison: { title: 'Abuse in prisons & jails', lead: 'Being incarcerated never takes away your right to safety. Jessica has fought for these survivors.', intro: 'Abuse by guards or staff while incarcerated or detained. Jessica served as Liaison Counsel in the $116M FCI Dublin settlement.', img: 'assets/p11.jpg', pos: '50% 30%',
+        looks: ['Sexual abuse by a guard or officer', 'Coercion in exchange for food, phone calls or protection', 'Threats or punishment for reporting', 'Abuse during transport or detention'],
+        who: ['Federal prisons', 'State prisons', 'County jails', 'Immigration and juvenile detention facilities'],
+        why: 'No one in custody can legally consent to sex with staff. Facilities can be held accountable for what they allowed.', video: '', videoTitle: 'Justice for incarcerated survivors' },
+      childhood: { title: 'Childhood sexual abuse', lead: 'It’s never too late to be heard. And in many cases, it’s not too late to file.', intro: 'Abuse that happened when you were a child, even if it was years or decades ago, and even if you’re only now understanding it.', img: 'assets/p05.jpg', pos: '50% 25%',
+        looks: ['Abuse by a family friend, relative, coach, teacher or leader', 'Memories or understanding that came later in life', 'Symptoms like anxiety, PTSD or trouble with relationships', 'Institutions that knew and stayed silent'],
+        who: ['Schools and youth organizations', 'Churches and faith groups', 'Foster care and group homes', 'Any institution that employed or protected the abuser'],
+        why: 'California has some of the strongest laws for childhood survivors. For abuse on or after Jan 1, 2024, there is no filing deadline.', video: '', videoTitle: 'For adult survivors of childhood abuse' },
+    };
+    const keys = Object.keys(S);
+    const id = S[this.state.id] ? this.state.id : 'schools';
+    const s = S[id];
+    const vid = s.video || DEFAULT_VIDEO;
+    return {
+      s,
+      playing: this.state.playing, idle: !this.state.playing, play: () => this.setState({ playing: true }),
+      embed: 'https://www.youtube.com/embed/' + vid + '?autoplay=1&rel=0&playsinline=1',
+      thumb: 'https://i.ytimg.com/vi/' + vid + '/maxresdefault.jpg',
+      ytUrl: 'https://www.youtube.com/watch?v=' + vid,
+      steps: ['Get to a safe place, and reach out to someone you trust or the 24-hour hotline: 800-656-4673.', 'If you can, save texts, emails, photos or names of anyone who knew. It’s okay if you can’t.', 'Talk privately with Jessica’s team, free. Share only what you’re ready to.'].map((copy, i) => ({ copy, num: '0' + (i + 1) })),
+      others: keys.filter(k => k !== id).map(k => ({ title: S[k].title, href: 'Situation.dc.html?s=' + k })),
+    };
+  }
+}
+</script>
+</body>
+</html>

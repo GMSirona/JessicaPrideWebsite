@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2a2320"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-style="italic" fill="#e2673e">JP</text></svg></template>
+<dc-import name="Site Header" active="" hint-size="100%,84px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));">
+    <div style="padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px; justify-content: center;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3;">FOR ATTORNEYS</span>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(48px, 5.6vw, 84px); line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance;"><span style="white-space: nowrap;">Trauma‑informed</span> <span style="white-space: nowrap;">co‑counsel</span> for your <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 4px; text-underline-offset: 12px;">survivor</em> clients.</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 30px; max-width: 46ch; color: #d9cec3;">Refer or co-counsel sexual abuse and assault matters with a team that does nothing else, and treats your client with the care you’d want.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="#refer" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Refer a case →</a>
+        <a href="tel:6195168166" style="border: 1px solid #f7f2ec; text-decoration: none; font-weight: 500; padding: 15px 24px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #f7f2ec; color: #2a2320;">Call 619-516-8166</a>
+      </div>
+    </div>
+    <div style="min-height: clamp(340px, 92vw, 480px); position: relative;"><img src="assets/p12.jpg" alt="Jessica Pride" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%;"></div>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px);">
+  <span style="display: block; font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600; margin-bottom: 16px;">WHY REFER TO JESSICA</span>
+  <h2 style="margin: 0 0 36px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 60px); line-height: 1;">Your client is in good hands.</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 32px;">
+    <sc-for list="{{ why }}" as="w" hint-placeholder-count="4">
+      <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #2a2320; padding-top: 20px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">{{ w.title }}</span>
+        <span style="font-size: 16px; line-height: 26px; color: #5b4f48;">{{ w.copy }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section id="refer" style="background: #ebe2d8; scroll-margin-top: 90px;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 48px clamp(32px, 6vw, 96px);">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">HOW IT WORKS</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 60px); line-height: 1;">Refer in three steps.</h2>
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="display: grid; grid-template-columns: 48px 1fr; gap: 12px; border-top: 1px solid #cfc3b7; padding-top: 16px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px; color: #e2673e;">{{ s.num }}</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-weight: 600; font-size: 17px;">{{ s.title }}</span><span style="font-size: 16px; line-height: 25px; color: #5b4f48;">{{ s.copy }}</span></span>
+        </div>
+      </sc-for>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+        <sc-for list="{{ caseTypes }}" as="c" hint-placeholder-count="8">
+          <span style="border: 1px solid #bfb2a6; border-radius: 99px; padding: 7px 14px; font-size: 14px;">{{ c }}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display: flex; flex-direction: column; gap: 16px; background: #f7f2ec; padding: clamp(24px, 3vw, 40px);">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600;">Attorney referral</span>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Your name<input required style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Firm<input style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Email<input type="email" required style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Phone<input type="tel" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Case type<select style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"><sc-for list="{{ caseTypes }}" as="c" hint-placeholder-count="8"><option>{{ c }}</option></sc-for></select></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">State / jurisdiction<input style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Brief summary<textarea rows="4" placeholder="No client-identifying details needed at this stage" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff; resize: vertical;"></textarea></label>
+          <label style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 21px;"><input type="checkbox" required style="margin-top: 3px; accent-color: #e2673e;">My client has agreed to be contacted by The Pride Law Firm.</label>
+          <button type="submit" style="all: unset; cursor: pointer; background: #2a2320; color: #f7f2ec; font-weight: 500; font-size: 16px; padding: 16px 24px;" style-hover="background: #e2673e; color: #fff;">Submit referral →</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="background: #f7f2ec; padding: 40px; display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600;">Thank you for the referral.</span>
+          <span style="font-size: 16px; line-height: 26px; color: #5b4f48;">Jessica’s team will follow up with you directly to discuss the matter and next steps.</span>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #1f1a17) 18%, color-mix(in oklab, #ebe2d8 50%, #1f1a17) 50%, color-mix(in oklab, #ebe2d8 15%, #1f1a17) 82%, #1f1a17 100%);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      why: [
+        ['Focused practice', 'Sexual abuse and assault is all we do, against schools, churches, medical providers, employers, rideshare and prisons.'],
+        ['Proven at scale', 'Liaison Counsel in the $116M FCI Dublin settlement. Co-founder of the AAJ Sexual Assault Litigation Group.'],
+        ['Trauma-informed, start to finish', 'A full-time Survivor Advocate supports your client, so the process doesn’t retraumatize them.'],
+        ['Healing support', 'Clients get access to Sirona Healing Center resources and our free self-care library.'],
+      ].map(([title, copy]) => ({ title, copy })),
+      steps: [
+        ['Send the basics', 'Use the form or call. No client-identifying details are needed up front.'],
+        ['We evaluate together', 'Jessica reviews the matter and talks with you about fit and structure.'],
+        ['Work it your way', 'Full referral or co-counsel, fee arrangements per California Rule of Professional Conduct 1.5.1.'],
+      ].map(([title, copy], i) => ({ title, copy, num: '0' + (i + 1) })),
+      caseTypes: ['School abuse', 'Clergy abuse', 'Medical provider abuse', 'Rideshare & travel', 'Hotel & trafficking', 'Workplace', 'Prison & jail', 'Childhood abuse (adult survivor)'],
+      sent: this.state.sent, notSent: !this.state.sent,
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

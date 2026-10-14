@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="articles-data.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<dc-import name="Site Header" active="heal" hint-size="100%,90px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 920px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 4vw, 48px) 32px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 13px; letter-spacing: 0.16em; color: #d9cec3;">
+      <a href="Articles.dc.html" style="text-decoration: none;" style-hover="color: #fff;">← ARTICLES &amp; GUIDES</a><span>·</span><span style="color: #f29a78;">{{ a.topicUpper }}</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 5vw, 72px); line-height: 1.02; letter-spacing: -0.01em; text-wrap: balance;">{{ a.title }}</h1>
+    <p style="margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.55; color: #d9cec3;">{{ a.dek }}</p>
+    <div style="display: flex; align-items: center; gap: 14px; margin-top: 6px;">
+      <div style="width: 48px; height: 48px; border-radius: 99px; overflow: hidden; flex-shrink: 0;"><img src="assets/p15.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;"></div>
+      <span style="display: flex; flex-direction: column; gap: 2px; font-size: 14px;"><span style="font-weight: 600; color: #fff;">Jessica Pride, Survivor Lawyer</span><span style="color: #bfb2a6;">{{ a.date }} · {{ a.read }} read</span></span>
+    </div>
+  </div>
+</header>
+<div style="background: linear-gradient(180deg, #2a2320 0%, #2a2320 50%, #f7f2ec 50%);">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
+    <div style="aspect-ratio: 16 / 8; overflow: hidden;"><img src="{{ a.img }}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%;"></div>
+  </div>
+</div>
+
+<article style="max-width: 1120px; margin: 0 auto; padding: clamp(40px, 5vw, 72px) clamp(20px, 4vw, 48px) clamp(56px, 7vw, 96px); display: flex; flex-wrap: wrap; gap: 40px clamp(32px, 5vw, 64px); align-items: flex-start;">
+  <aside style="position: sticky; top: 110px; flex: 1 1 260px; max-width: 300px; display: flex; flex-direction: column; gap: 16px;">
+    <div style="background: #ebe2d8; padding: 24px; display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-size: 12px; letter-spacing: 0.16em; color: #e2673e; font-weight: 600;">KEY TAKEAWAYS</span>
+      <sc-for list="{{ a.takeaways }}" as="k" hint-placeholder-count="3">
+        <span style="font-size: 15px; line-height: 23px; padding-left: 12px; border-left: 2px solid #e2673e;">{{ k }}</span>
+      </sc-for>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding: 4px 0;">
+      <span style="font-size: 12px; letter-spacing: 0.16em; color: #6f625a;">IN THIS GUIDE</span>
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="4">
+        <a href="{{ t.href }}" style="font-size: 15px; line-height: 22px; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #e2d8cd;">{{ t.title }}</a>
+      </sc-for>
+    </div>
+  </aside>
+  <div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 36px; max-width: 68ch;">
+    <sc-for list="{{ sections }}" as="s" hint-placeholder-count="4">
+      <section id="{{ s.id }}" style="display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 110px;">
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(30px, 3vw, 40px); line-height: 1.08;">{{ s.title }}</h2>
+        <p style="margin: 0; font-size: 19px; line-height: 1.7; color: #3a302b;">{{ s.body }}</p>
+      </section>
+    </sc-for>
+
+    <div style="background: #2a2320; color: #f7f2ec; padding: clamp(24px, 3vw, 36px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px;">
+      <span style="display: flex; flex-direction: column; gap: 6px; max-width: 36ch;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; line-height: 1.08;">Want to talk it through?</span><span style="font-size: 15px; color: #d9cec3;">Free, confidential, and a first name is enough.</span></span>
+      <a href="Reach%20Out.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 15px 24px; white-space: nowrap; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Talk privately →</a>
+    </div>
+
+    <div style="display: flex; flex-direction: column;">
+      <span style="font-size: 12px; letter-spacing: 0.16em; color: #e2673e; font-weight: 600; margin-bottom: 8px;">QUESTIONS SURVIVORS ASK</span>
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="2">
+        <div style="border-top: 1px solid #d6cabe;">
+          <button type="button" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; line-height: 1.2;" style-hover="color: #e2673e;"><span>{{ f.q }}</span><span style="color: #e2673e;">{{ f.icon }}</span></button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.65; color: #3a302b;">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ hasSituation }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ situationHref }}" style="border: 1px solid #2a2320; padding: 22px 24px; text-decoration: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;" style-hover="border-color: #e2673e; color: #2a2320;"><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; letter-spacing: 0.16em; color: #6f625a;">RELATED SITUATION</span><span style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600;">Learn more and watch the video</span></span><span style="color: #e2673e; font-size: 22px;">→</span></a>
+    </sc-if>
+    <span style="font-size: 13px; line-height: 20px; color: #6f625a;">General information, not legal advice. Every situation is different. Prior results do not guarantee a similar outcome.</span>
+  </div>
+</article>
+
+<div aria-hidden="true" style="height: clamp(42px, 10.6vw, 140px); background: linear-gradient(180deg, #f7f2ec, #ebe2d8);"></div>
+<section style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(56px, 7vw, 88px);">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 24px;">
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(32px, 3.2vw, 44px);">Keep reading</h2>
+      <a href="Articles.dc.html" style="font-weight: 500;">All articles &amp; guides →</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px;">
+      <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+        <a href="{{ r.href }}" style="display: flex; flex-direction: column; gap: 10px; background: #f7f2ec; border: 1px solid #d6cabe; padding: 24px; text-decoration: none;" style-hover="border-color: #2a2320; color: #2a2320;">
+          <span style="font-size: 12px; letter-spacing: 0.16em; color: #e2673e; font-weight: 600;">{{ r.topicUpper }}</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; line-height: 1.1;">{{ r.title }}</span>
+          <span style="font-size: 14px; color: #6f625a;">{{ r.read }} read</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(36px, 9.1vw, 120px); background: linear-gradient(180deg, #ebe2d8, #1f1a17);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: !!window.ARTICLES, open: 0 };
+  componentDidMount() {
+    this.slug = new URLSearchParams(window.location.search).get('a');
+    if (!this.state.ready) this.t = setInterval(() => { if (window.ARTICLES) { clearInterval(this.t); this.setState({ ready: true }); } }, 50);
+    else this.forceUpdate();
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    const all = window.ARTICLES || [];
+    const raw = all.find(x => x.slug === this.slug) || all[0] || { title: '', dek: '', topic: '', takeaways: [], sections: [], faqs: [] };
+    const a = { ...raw, topicUpper: (raw.topic || '').toUpperCase() };
+    const sections = (raw.sections || []).map(([title, body], i) => ({ title, body, id: 's' + (i + 1) }));
+    const related = all.filter(x => x.slug !== raw.slug).sort((x, y) => (y.topic === raw.topic) - (x.topic === raw.topic)).slice(0, 3)
+      .map(x => ({ ...x, href: 'Article.dc.html?a=' + x.slug, topicUpper: x.topic.toUpperCase() }));
+    return {
+      a, sections,
+      toc: sections.map(s => ({ title: s.title, href: '#' + s.id })),
+      faqs: (raw.faqs || []).map(([q, ans], i) => ({ q, a: ans, open: this.state.open === i, icon: this.state.open === i ? '−' : '+', toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })) })),
+      hasSituation: !!raw.situation, situationHref: 'Situation.dc.html?s=' + raw.situation,
+      related,
+    };
+  }
+}
+</script>
+</body>
+</html>

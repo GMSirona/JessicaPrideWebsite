@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; }
+a { color: #c9532c; }
+a:hover { color: #2a2320; }
+</style>
+</helmet>
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 960px; margin: 0 auto; padding: 56px 24px 40px; display: flex; flex-direction: column; gap: 14px;">
+    <img src="assets/logo-coral-script.png" alt="Jessica Pride" style="width: 200px; height: auto;">
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 5vw, 64px); line-height: 1;">Put the whole site on Vercel</h1>
+    <p style="margin: 0; font-size: 18px; line-height: 28px; color: #d9cec3; max-width: 60ch;">14 pages, every link, every photo and the hero video, live under one address. Pick one path below. Path A takes about 2 minutes.</p>
+  </div>
+</header>
+
+<main style="max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-direction: column; gap: 28px;">
+  <sc-for list="{{ paths }}" as="p" hint-placeholder-count="3">
+    <section style="background: #fff; border: 1px solid #e2d8cd; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 36px; color: #e2673e; line-height: 1;">{{ p.letter }}</span>
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 32px; line-height: 1.05;">{{ p.title }}</h2>
+        <span style="font-size: 13px; letter-spacing: 0.14em; color: #6f625a;">{{ p.tag }}</span>
+      </div>
+      <ol style="margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 27px;">
+        <sc-for list="{{ p.steps }}" as="s" hint-placeholder-count="4"><li>{{ s }}</li></sc-for>
+      </ol>
+    </section>
+  </sc-for>
+
+  <section style="background: #ebe2d8; padding: 28px; display: flex; flex-direction: column; gap: 12px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 30px;">After it's live: check these links</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 24px; font-size: 15px; line-height: 24px;">
+      <sc-for list="{{ urls }}" as="u" hint-placeholder-count="12"><span><strong>{{ u.path }}</strong> · {{ u.page }}</span></sc-for>
+    </div>
+  </section>
+
+  <section style="border-top: 2px solid #2a2320; padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 26px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 28px;">If something looks broken</h2>
+    <sc-for list="{{ fixes }}" as="f" hint-placeholder-count="4"><span>{{ f }}</span></sc-for>
+  </section>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      paths: [
+        { letter: 'A', title: 'Drag and drop', tag: 'FASTEST · NO CODE', steps: [
+          'Download the "website-deploy" folder from this project and unzip it.',
+          'Sign in at vercel.com and open vercel.com/new.',
+          'Choose to deploy without Git, then drag the unzipped folder (the one that contains index.html) onto the page.',
+          'Framework preset: Other. Leave Build Command and Output Directory empty. Click Deploy.',
+          'Open the link Vercel gives you. It lands on the homepage, and every menu link works.',
+        ]},
+        { letter: 'B', title: 'GitHub, auto-updating', tag: 'BEST FOR THE WEB TEAM', steps: [
+          'Create a new GitHub repository, e.g. jessica-pride-website.',
+          'Upload everything inside "website-deploy" to the root of the repo (index.html must be at the top level).',
+          'At vercel.com/new, choose Import Git Repository and pick that repo. Framework: Other, no build command.',
+          'Deploy. From now on, every change pushed to GitHub goes live automatically.',
+          'Or send me the repo name (owner/name) and I can link it to Vercel and deploy it for you from here.',
+        ]},
+        { letter: 'C', title: 'Command line', tag: 'FOR DEVELOPERS', steps: [
+          'Unzip the folder and open a terminal inside it.',
+          'Run: npx vercel --prod',
+          'Answer the prompts: link to a new project, keep the current directory, no build settings.',
+        ]},
+      ],
+      urls: [
+        ['/', 'Home'], ['/What Happened.dc.html', 'What happened'], ['/Situation.dc.html?s=schools', 'One situation'],
+        ['/Who We Help.dc.html', 'Who we help'], ['/Why Jessica.dc.html', 'Why Jessica'], ['/Team.dc.html', 'Meet the team'],
+        ['/Heal and Learn.dc.html', 'Heal & learn'], ['/Articles.dc.html', 'Articles'], ['/Article.dc.html?a=statute-of-limitations', 'One article'],
+        ['/Reach Out.dc.html', 'Reach out'], ['/Attorneys.dc.html', 'For attorneys'], ['/Espanol.dc.html', 'Español'],
+      ].map(([path, page]) => ({ path, page })),
+      fixes: [
+        'Blank page: support.js is missing from the root. It must sit next to index.html.',
+        'Photos or video missing: the assets folder must be uploaded too, keeping its name "assets".',
+        'Header or footer missing: Site Header.dc.html and Site Footer.dc.html must be in the root.',
+        'Custom domain: in Vercel, Project → Settings → Domains → add survivorlawyer.com, then update DNS where the domain is registered.',
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<dc-import name="Site Header" active="who" hint-size="100%,84px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));">
+    <div style="padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px; justify-content: center;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3;">WHO WE HELP</span>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 6.4vw, 92px); line-height: 0.96; letter-spacing: -0.015em;">Every survivor deserves to be <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 4px; text-underline-offset: 12px;">believed.</em></h1>
+      <p style="margin: 0; font-size: 19px; line-height: 30px; max-width: 46ch; color: #d9cec3;">Whoever you are, wherever you’re from, however long ago it happened. Our whole team is trained in trauma-informed care.</p>
+    </div>
+    <div style="min-height: clamp(340px, 92vw, 480px); position: relative;"><img src="assets/p16.jpg" alt="Jessica Pride" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;"></div>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 8vw, 112px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 24px;">
+  <sc-for list="{{ groups }}" as="g" hint-placeholder-count="6">
+    <article id="{{ g.id }}" style="background: #fff; border: 1px solid #e2d8cd; display: flex; flex-direction: column; scroll-margin-top: 100px;">
+      <div style="aspect-ratio: 16 / 10; overflow: hidden;"><img src="{{ g.img }}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: {{ g.pos }};"></div>
+      <div style="padding: 28px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px; line-height: 1.04;">{{ g.title }}</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 26px; color: #5b4f48; flex: 1;">{{ g.copy }}</p>
+        <span style="font-size: 15px; line-height: 23px; border-left: 2px solid #e2673e; padding-left: 12px;">{{ g.note }}</span>
+      </div>
+    </article>
+  </sc-for>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section id="loved-ones" style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px clamp(32px, 6vw, 88px);">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">FOR LOVED ONES</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 60px); line-height: 1;">Someone you love told you. Now what?</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 28px; color: #5b4f48; max-width: 46ch;">How you respond in the first moments matters more than anything you know about the law.</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <sc-for list="{{ tips }}" as="t" hint-placeholder-count="4">
+        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid #cfc3b7;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #e2673e;">{{ t.num }}</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-weight: 600; font-size: 17px;">{{ t.title }}</span><span style="font-size: 16px; line-height: 25px; color: #5b4f48;">{{ t.copy }}</span></span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #2a2320) 18%, color-mix(in oklab, #ebe2d8 50%, #2a2320) 50%, color-mix(in oklab, #ebe2d8 15%, #2a2320) 82%, #2a2320 100%);"></div>
+<section style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(56px, 7vw, 96px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(38px, 4vw, 56px); line-height: 1.02; max-width: 18ch;">A free, confidential conversation. A first name is enough.</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+      <a href="Reach%20Out.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Talk privately →</a>
+      <a href="Espanol.dc.html" style="border: 1px solid #f7f2ec; text-decoration: none; font-weight: 500; padding: 15px 24px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #f7f2ec; color: #2a2320;">En español</a>
+    </div>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(42px, 10.6vw, 140px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #1f1a17) 18%, color-mix(in oklab, #2a2320 50%, #1f1a17) 50%, color-mix(in oklab, #2a2320 15%, #1f1a17) 82%, #1f1a17 100%);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const G = [
+      ['women', 'Women', 'Most of the survivors we represent are women, assaulted at work, at school, by a doctor, a driver or someone they trusted.', 'You will be heard by women who understand.', 'assets/p06.jpg', '50% 30%'],
+      ['men', 'Men', 'Men and boys are survivors too, and often carry it alone the longest. Shame and silence are common, and not a reason it’s too late.', 'Many male survivors come forward decades later. That’s okay.', 'assets/p14.jpg', '50% 30%'],
+      ['children', 'Children & teens', 'For parents and guardians: if your child was abused at school, church, a program or in care, you can act on their behalf.', 'We keep your child’s privacy at the center of every step.', 'assets/p10.jpg', '50% 30%'],
+      ['lgbtq', 'LGBTQ+ survivors', 'Queer and trans survivors face higher rates of violence and too often aren’t believed. Here, you will be.', 'You choose the name and pronouns we use for you.', 'assets/p07.jpg', '50% 40%'],
+      ['immigrants', 'Immigrants', 'Your immigration status does not take away your right to justice. Survivors may also qualify for protections like the U visa.', 'Spanish-speaking support is available.', 'assets/p09.jpg', '50% 40%'],
+      ['adult-survivors', 'Adult survivors of childhood abuse', 'If it happened when you were young, California law may still let you file, and in many cases there is no deadline at all.', 'It’s never too late to ask.', 'assets/p13.jpg', '50% 40%'],
+    ];
+    return {
+      groups: G.map(([id, title, copy, note, img, pos]) => ({ id, title, copy, note, img, pos })),
+      tips: [
+        ['Believe them', 'Say it plainly: “I believe you. It’s not your fault.”'],
+        ['Let them lead', 'Don’t push for details or decisions. Ask what they need.'],
+        ['Protect their privacy', 'Their story is theirs to share. Don’t tell others without asking.'],
+        ['Get support for you, too', 'The 24-hour hotline talks with loved ones as well: 800-656-4673.'],
+      ].map(([title, copy], i) => ({ title, copy, num: '0' + (i + 1) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

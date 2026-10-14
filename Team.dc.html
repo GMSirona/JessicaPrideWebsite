@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<meta name="ext-resource-dependency" content="assets/p11.jpg">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2a2320"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-style="italic" fill="#e2673e">JP</text></svg></template>
+<dc-import name="Site Header" active="why" hint-size="100%,90px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 48px) 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px 64px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <a href="Why%20Jessica.dc.html" style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3; text-decoration: none;" style-hover="color: #fff;">← WHY JESSICA</a>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 6.4vw, 96px); line-height: 0.96; letter-spacing: -0.015em; text-wrap: balance;">The people in your <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 4px; text-underline-offset: 12px;">corner.</em></h1>
+    </div>
+    <p style="margin: 0; font-size: 19px; line-height: 30px; max-width: 46ch; color: #d9cec3;">Every survivor gets a whole team, not a case number. Hover or tap a portrait to meet them.</p>
+  </div>
+
+  <div style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
+    <div role="tablist" aria-label="Team members" style="display: flex; flex-direction: {{ dir }}; gap: 10px; height: {{ stripH }};">
+      <sc-for list="{{ members }}" as="m" hint-placeholder-count="5">
+        <div role="tab" tabindex="0" aria-selected="{{ m.open }}" onMouseEnter="{{ m.pick }}" onClick="{{ m.pick }}" onFocus="{{ m.pick }}" style="position: relative; flex: {{ m.flex }}; min-width: 0; min-height: 0; overflow: hidden; cursor: pointer; background: #1f1a17; transition: flex 0.7s cubic-bezier(0.22, 1, 0.36, 1);">
+          <div style="position: absolute; inset: 0; filter: {{ m.filter }}; transform: scale({{ m.scale }}); transition: filter 0.7s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);">
+            <sc-if value="{{ m.hasImg }}" hint-placeholder-val="{{ false }}">
+              <img src="assets/p11.jpg" alt="{{ m.alt }}" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: {{ m.pos }};">
+            </sc-if>
+            <sc-if value="{{ m.noImg }}" hint-placeholder-val="{{ true }}">
+              <div style="position: absolute; inset: 0; opacity: {{ m.slotOpacity }}; pointer-events: {{ m.slotEvents }}; transition: opacity 0.5s ease;"><image-slot id="{{ m.slot }}" shape="rect" placeholder="Drop headshot"></image-slot></div>
+            </sc-if>
+          </div>
+          <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 58%; pointer-events: none; background: linear-gradient(0deg, rgba(31,26,23,0.92) 0%, rgba(31,26,23,0.5) 50%, rgba(31,26,23,0) 100%);"></div>
+          <span style="position: absolute; top: 14px; left: 14px; pointer-events: none; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; line-height: 1; color: #f29a78; background: rgba(31,26,23,0.72); padding: 6px 10px;">{{ m.num }}</span>
+          <sc-if value="{{ m.closed }}" hint-placeholder-val="{{ true }}">
+            <span style="position: absolute; left: 50%; bottom: 24px; pointer-events: none; writing-mode: {{ m.writing }}; transform: {{ m.rotate }}; white-space: nowrap; font-size: 13px; letter-spacing: 0.22em; font-weight: 600; color: #f7f2ec;">{{ m.roleUpper }}</span>
+          </sc-if>
+          <sc-if value="{{ m.open }}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: clamp(20px, 2.4vw, 32px); pointer-events: none; display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-size: 12px; letter-spacing: 0.2em; color: #f29a78; font-weight: 600;">{{ m.roleUpper }}</span>
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 3.4vw, 48px); font-weight: 600; line-height: 1; color: #fff;">{{ m.name }}</span>
+              <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(19px, 1.6vw, 23px); line-height: 1.3; color: #f2ebe3; max-width: 34ch;">“{{ m.quote }}”</span>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="max-width: 1320px; margin: 0 auto; padding: 36px clamp(20px, 4vw, 48px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 24px 64px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-size: 12px; letter-spacing: 0.2em; color: #bfb2a6;">{{ active.counter }}</span>
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 2.8vw, 40px); font-weight: 600; line-height: 1.05;">{{ active.name }}, <em style="font-weight: 500; color: #f29a78;">{{ active.role }}</em></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #e9e1d8;">{{ active.bio }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <sc-for list="{{ active.tags }}" as="t" hint-placeholder-count="3">
+          <span style="border: 1px solid #6f625a; border-radius: 99px; padding: 6px 14px; font-size: 13px; color: #d9cec3;">{{ t }}</span>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 10px; margin-top: 4px;">
+        <button type="button" onClick="{{ prev }}" aria-label="Previous team member" style="all: unset; cursor: pointer; width: 48px; height: 48px; border: 1px solid #8a7c71; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-size: 18px;" style-hover="background: #f7f2ec; color: #2a2320;">←</button>
+        <button type="button" onClick="{{ next }}" aria-label="Next team member" style="all: unset; cursor: pointer; width: 48px; height: 48px; border: 1px solid #8a7c71; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-size: 18px;" style-hover="background: #f7f2ec; color: #2a2320;">→</button>
+      </div>
+    </div>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(66px, 16.7vw, 220px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px);">
+  <span style="display: block; font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600; margin-bottom: 16px;">HOW WE WORK TOGETHER</span>
+  <h2 style="margin: 0 0 40px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1; text-wrap: balance; max-width: 18ch;">One case. One team. You at the center.</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 36px;">
+    <sc-for list="{{ ways }}" as="w" hint-placeholder-count="3">
+      <div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #2a2320; padding-top: 22px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(48px, 4.4vw, 64px); line-height: 1; color: #e2673e;">{{ w.num }}</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 2.6vw, 36px); font-weight: 600; line-height: 1.06;">{{ w.title }}</span>
+        <span style="font-size: 18px; line-height: 1.6; color: #5b4f48;">{{ w.copy }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #2a2320) 18%, color-mix(in oklab, #f7f2ec 50%, #2a2320) 50%, color-mix(in oklab, #f7f2ec 15%, #2a2320) 82%, #2a2320 100%);"></div>
+<section style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 16px clamp(20px, 4vw, 48px) clamp(56px, 7vw, 88px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(36px, 3.8vw, 52px); line-height: 1.04; max-width: 18ch; text-wrap: balance;">Ready to meet us? A first name is enough.</h2>
+    <a href="Reach%20Out.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Talk privately →</a>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(18px, 4.5vw, 60px); background: linear-gradient(180deg, #2a2320, #1f1a17);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { i: 0, narrow: false };
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 760px)');
+    this.onMq = () => this.setState({ narrow: this.mq.matches });
+    this.onMq();
+    this.mq.addEventListener('change', this.onMq);
+  }
+  componentWillUnmount() { this.mq && this.mq.removeEventListener('change', this.onMq); }
+  renderVals() {
+    const T = [
+      { name: 'Jessica Pride', role: 'Founder & Trial Attorney', img: 'assets/p11.jpg', pos: '50% 25%', quote: 'I believe you. I want to help you get justice.',
+        bio: 'A survivor herself, Jessica has spent more than 20 years representing survivors of sexual violence. She served as Liaison Counsel in the $116M FCI Dublin settlement and co-founded the AAJ Sexual Assault Litigation Group.', tags: ['Trial attorney', 'AAJ SALG co-founder', 'Founder, Sirona Healing Center'] },
+      { name: 'Survivor Advocate', role: 'Your person, start to finish', img: '', quote: 'My only job is you, and how you’re doing.',
+        bio: 'The Pride Law Firm was the first California firm with a full-time Survivor Advocate. They check in, come with you to hard days like depositions, and connect you to therapy and healing support.', tags: ['Trauma-informed care', 'Hearing support', 'Healing resources'] },
+      { name: 'Associate Attorney', role: 'Builds your case', img: '', quote: 'We find out who knew, and who should have stopped it.',
+        bio: 'Investigates the institutions involved, gathers records and witnesses, and prepares your case for settlement or trial alongside Jessica.', tags: ['Investigation', 'Discovery', 'Trial prep'] },
+      { name: 'Case Manager', role: 'Keeps you informed', img: '', quote: 'You will always know what’s happening and what’s next.',
+        bio: 'Your day-to-day contact for updates, scheduling and paperwork, so you never have to wonder where things stand.', tags: ['Updates', 'Scheduling', 'Documents'] },
+      { name: 'Intake Specialist', role: 'The first voice you’ll hear', img: '', quote: 'You can take your time. I’m listening.',
+        bio: 'Answers your first call or message with care, explains what happens next, and connects you with Jessica. Spanish-speaking support available.', tags: ['First contact', 'Español', 'Confidential'] },
+    ];
+    const i = this.state.i, n = T.length, narrow = this.state.narrow;
+    const a = T[i];
+    return {
+      dir: narrow ? 'column' : 'row',
+      stripH: narrow ? 'auto' : 'clamp(460px, 62vh, 640px)',
+      members: T.map((m, k) => {
+        const open = k === i;
+        return {
+          ...m, open, closed: !open, num: '0' + (k + 1), roleUpper: m.role.toUpperCase(), alt: m.name,
+          hasImg: !!m.img, noImg: !m.img, slot: 'team-' + (k + 1), slotOpacity: open ? 1 : 0, slotEvents: open ? 'auto' : 'none',
+          flex: narrow ? (open ? '0 0 440px' : '0 0 84px') : (open ? '4.2 1 0' : '1 1 0'),
+          filter: open ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.72)',
+          scale: open ? 1 : 1.08,
+          writing: narrow ? 'horizontal-tb' : 'vertical-rl',
+          rotate: narrow ? 'translateX(-50%)' : 'translateX(-50%) rotate(180deg)',
+          pick: () => { if (this.state.i !== k) this.setState({ i: k }); },
+        };
+      }),
+      active: { ...a, counter: String(i + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0') },
+      prev: () => this.setState({ i: (i + n - 1) % n }),
+      next: () => this.setState({ i: (i + 1) % n }),
+      ways: [
+        ['Jessica leads your case', 'She sets the strategy, takes on the institution, and is directly available to you.'],
+        ['Your advocate supports you', 'Someone focused on your wellbeing, so the legal process doesn’t take more from you.'],
+        ['The team handles the rest', 'Investigation, records, scheduling and updates, all handled, so you can focus on healing.'],
+      ].map(([title, copy], k) => ({ title, copy, num: '0' + (k + 1) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

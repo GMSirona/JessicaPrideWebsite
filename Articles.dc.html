@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="articles-data.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<dc-import name="Site Header" active="heal" hint-size="100%,90px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 48px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 28px 64px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <a href="Heal%20and%20Learn.dc.html" style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3; text-decoration: none;" style-hover="color: #fff;">← HEAL &amp; LEARN</a>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 6vw, 88px); line-height: 0.96; letter-spacing: -0.015em;">Articles &amp; <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 4px; text-underline-offset: 12px;">guides</em></h1>
+      <p style="margin: 0; font-size: 19px; line-height: 30px; max-width: 46ch; color: #d9cec3;">Plain-language answers about your rights, your options and healing, written by Jessica’s team.</p>
+    </div>
+    <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; letter-spacing: 0.16em; color: #d9cec3;">SEARCH ARTICLES
+      <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="e.g. school, deadline, Uber" style="font: inherit; font-size: 18px; letter-spacing: 0; padding: 16px 18px; border: 1px solid #8a7c71; background: #3a302b; color: #fff; outline-color: #ef7a52;">
+    </label>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(60px, 15.2vw, 200px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px);">
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px;">
+    <sc-for list="{{ topics }}" as="t" hint-placeholder-count="7">
+      <button type="button" onClick="{{ t.pick }}" aria-pressed="{{ t.on }}" style="all: unset; cursor: pointer; padding: 11px 20px; border-radius: 99px; font-size: 15px; font-weight: 500; border: 1px solid #2a2320; background: {{ t.bg }}; color: {{ t.fg }};" style-hover="border-color: #e2673e;">{{ t.label }}</button>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ hasFeatured }}" hint-placeholder-val="{{ true }}">
+    <a href="{{ featured.href }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); background: #fff; border: 1px solid #e2d8cd; text-decoration: none; margin-bottom: 28px;" style-hover="border-color: #2a2320; color: #2a2320;">
+      <div style="min-height: 320px; position: relative; overflow: hidden;"><img src="{{ featured.img }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></div>
+      <div style="padding: clamp(24px, 3vw, 44px); display: flex; flex-direction: column; gap: 14px; justify-content: center;">
+        <span style="font-size: 12px; letter-spacing: 0.16em; color: #e2673e; font-weight: 600;">LATEST · {{ featured.topicUpper }}</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.2vw, 46px); font-weight: 600; line-height: 1.04;">{{ featured.title }}</span>
+        <span style="font-size: 18px; line-height: 28px; color: #5b4f48;">{{ featured.dek }}</span>
+        <span style="font-size: 14px; color: #6f625a;">{{ featured.date }} · {{ featured.read }} read</span>
+        <span style="font-weight: 600; margin-top: 4px;">Read the guide →</span>
+      </div>
+    </a>
+  </sc-if>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 24px;">
+    <sc-for list="{{ rest }}" as="a" hint-placeholder-count="6">
+      <a href="{{ a.href }}" style="display: flex; flex-direction: column; background: #fff; border: 1px solid #e2d8cd; text-decoration: none;" style-hover="border-color: #2a2320; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden;"><img src="{{ a.img }}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover;"></div>
+        <div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+          <span style="font-size: 12px; letter-spacing: 0.16em; color: #e2673e; font-weight: 600;">{{ a.topicUpper }}</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">{{ a.title }}</span>
+          <span style="font-size: 16px; line-height: 25px; color: #5b4f48; flex: 1;">{{ a.dek }}</span>
+          <span style="font-size: 14px; color: #6f625a;">{{ a.date }} · {{ a.read }} read</span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+  <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+    <div style="padding: 40px; background: #ebe2d8; display: flex; flex-direction: column; gap: 10px;">
+      <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600;">No articles match that yet.</span>
+      <span style="font-size: 16px; color: #5b4f48;">Try another word, or ask us directly. It’s free and confidential.</span>
+      <a href="Reach%20Out.dc.html" style="font-weight: 600; color: #e2673e;">Ask a question →</a>
+    </div>
+  </sc-if>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #2a2320) 18%, color-mix(in oklab, #f7f2ec 50%, #2a2320) 50%, color-mix(in oklab, #f7f2ec 15%, #2a2320) 82%, #2a2320 100%);"></div>
+<section style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 16px clamp(20px, 4vw, 48px) clamp(56px, 7vw, 88px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(36px, 3.8vw, 52px); line-height: 1.04; max-width: 20ch;">Have a question that isn’t answered here?</h2>
+    <a href="Reach%20Out.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Ask privately →</a>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(18px, 4.5vw, 60px); background: linear-gradient(180deg, #2a2320, #1f1a17);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { topic: 'All', query: '', ready: !!window.ARTICLES };
+  componentDidMount() {
+    if (!this.state.ready) this.t = setInterval(() => { if (window.ARTICLES) { clearInterval(this.t); this.setState({ ready: true }); } }, 50);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+  renderVals() {
+    const all = (window.ARTICLES || []).map(a => ({ ...a, href: 'Article.dc.html?a=' + a.slug, topicUpper: a.topic.toUpperCase() }));
+    const q = this.state.query.trim().toLowerCase();
+    const list = all.filter(a => (this.state.topic === 'All' || a.topic === this.state.topic) && (!q || (a.title + ' ' + a.dek + ' ' + a.topic).toLowerCase().includes(q)));
+    const topics = window.ARTICLE_TOPICS || ['All'];
+    return {
+      query: this.state.query,
+      onSearch: e => this.setState({ query: e.target.value }),
+      topics: topics.map(t => ({ label: t, on: t === this.state.topic, bg: t === this.state.topic ? '#2a2320' : 'transparent', fg: t === this.state.topic ? '#f7f2ec' : '#2a2320', pick: () => this.setState({ topic: t }) })),
+      featured: list[0] || {}, hasFeatured: list.length > 0, rest: list.slice(1), empty: this.state.ready && list.length === 0,
+    };
+  }
+}
+</script>
+</body>
+</html>

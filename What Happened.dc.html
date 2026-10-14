@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<dc-import name="Site Header" active="what" hint-size="100%,84px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px) 40px; display: flex; flex-direction: column; gap: 24px;">
+    <span style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3;">WHAT HAPPENED</span>
+    <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 6.4vw, 96px); line-height: 0.96; letter-spacing: -0.015em; max-width: 16ch;">It wasn’t your fault. And it wasn’t <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 4px; text-underline-offset: 12px;">only</em> them.</h1>
+    <p style="margin: 0; font-size: 19px; line-height: 30px; max-width: 56ch; color: #d9cec3;">Schools, churches, companies and facilities that hire, supervise or protect abusers can be held responsible in civil court, even when there’s no criminal case.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+      <sc-for list="{{ situations }}" as="s" hint-placeholder-count="8">
+        <a href="{{ s.anchor }}" style="border: 1px solid #6f625a; border-radius: 99px; padding: 9px 16px; text-decoration: none; font-size: 14px; color: #f7f2ec;" style-hover="border-color: #f7f2ec; color: #fff;">{{ s.title }}</a>
+      </sc-for>
+    </div>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 112px);">
+  <sc-for list="{{ situations }}" as="s" hint-placeholder-count="8">
+    <article id="{{ s.id }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px clamp(32px, 5vw, 72px); padding: 44px 0; border-top: 1px solid #d6cabe; scroll-margin-top: 100px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 28px; color: #e2673e;">{{ s.num }}</span>
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 46px); line-height: 1.02;">{{ s.title }}</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0; font-size: 17px; line-height: 28px; color: #5b4f48;">{{ s.copy }}</p>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-size: 12px; letter-spacing: 0.16em; color: #6f625a;">WHO MAY BE RESPONSIBLE</span>
+          <span style="font-size: 16px; line-height: 25px;">{{ s.who }}</span>
+        </div>
+        <a href="{{ s.page }}" style="align-self: flex-start; font-weight: 600; color: #e2673e;" style-hover="color: #c9532c;">Learn more and watch the video →</a>
+      </div>
+    </article>
+  </sc-for>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section id="deadlines" style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px clamp(32px, 6vw, 88px);">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">STATUTE OF LIMITATIONS · CALIFORNIA</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1;">Is it too late? Often, <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 3px; text-underline-offset: 9px;">no.</em></h2>
+      <p style="margin: 0; font-size: 17px; line-height: 28px; color: #5b4f48; max-width: 48ch;">California has some of the longest filing windows in the country. Choose what applies to you.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px;">
+        <sc-for list="{{ ages }}" as="g" hint-placeholder-count="2">
+          <button type="button" onClick="{{ g.pick }}" aria-pressed="{{ g.on }}" style="all: unset; cursor: pointer; padding: 13px 22px; font-size: 16px; font-weight: 500; border: 1px solid #2a2320; background: {{ g.bg }}; color: {{ g.fg }};">{{ g.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="background: #f7f2ec; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 20px;">
+      <sc-for list="{{ rules }}" as="r" hint-placeholder-count="3">
+        <div style="display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid #e2d8cd; padding-bottom: 18px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; line-height: 1.05;">{{ r.big }}</span>
+          <span style="font-size: 16px; line-height: 25px; color: #5b4f48;">{{ r.copy }}</span>
+        </div>
+      </sc-for>
+      <span style="font-size: 13px; line-height: 20px; color: #6f625a;">General information, not legal advice. Deadlines depend on your facts and can change. Talk to us to know yours, it’s free.</span>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #2a2320) 18%, color-mix(in oklab, #ebe2d8 50%, #2a2320) 50%, color-mix(in oklab, #ebe2d8 15%, #2a2320) 82%, #2a2320 100%);"></div>
+<section style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(56px, 7vw, 96px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(38px, 4vw, 56px); line-height: 1.02; max-width: 18ch;">Tell us what happened, only what you’re ready to.</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+      <a href="Reach%20Out.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Talk privately →</a>
+      <a href="Heal%20and%20Learn.dc.html" style="border: 1px solid #f7f2ec; text-decoration: none; font-weight: 500; padding: 15px 24px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #f7f2ec; color: #2a2320;">I’m not ready yet</a>
+    </div>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(42px, 10.6vw, 140px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #1f1a17) 18%, color-mix(in oklab, #2a2320 50%, #1f1a17) 50%, color-mix(in oklab, #2a2320 15%, #1f1a17) 82%, #1f1a17 100%);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { age: 0 };
+  renderVals() {
+    const S = [
+      ['schools', 'Schools', 'Abuse by a teacher, coach, counselor or another student, at K–12 schools, colleges, camps and youth programs. Schools have a duty to supervise and to act on warning signs.', 'School districts, private schools, universities, youth sports organizations'],
+      ['faith', 'Churches & faith', 'Abuse by clergy, youth leaders or volunteers. Many faith organizations knew and moved abusers instead of stopping them.', 'Churches, dioceses, religious orders, faith-based camps and schools'],
+      ['medical', 'Doctors & care facilities', 'Abuse during an exam, treatment or stay, by a doctor, therapist, nurse or staff member at a hospital, clinic, nursing home or treatment center.', 'Hospitals, clinics, medical groups, residential treatment and care facilities'],
+      ['travel', 'Rideshare & travel', 'Assault by a rideshare driver, a host or a fellow traveler, in a car, rental, plane or cruise.', 'Uber, Lyft, Airbnb and hosts, airlines, cruise lines'],
+      ['trafficking', 'Hotels & trafficking', 'Being trafficked, or assaulted at a hotel or motel where staff saw the signs and did nothing.', 'Hotel brands, franchise owners, property managers'],
+      ['workplace', 'Workplace', 'Assault or harassment by a supervisor, coworker or client, and retaliation when you spoke up.', 'Employers, staffing agencies, managers who ignored complaints'],
+      ['prison', 'Prisons & jails', 'Abuse by guards or staff while incarcerated. Jessica served as Liaison Counsel in the $116M FCI Dublin settlement.', 'Federal and state prisons, county jails, detention facilities'],
+      ['childhood', 'Childhood abuse', 'Abuse that happened when you were a child, even if it was years or decades ago, and even if you’re only now understanding it.', 'Families’ trusted institutions: schools, churches, youth groups, foster care'],
+    ];
+    const ages = [
+      { label: 'I was an adult', rules: [
+        ['10 years', 'Generally, you may file within 10 years of the assault.'],
+        ['or 3 years from discovery', 'Or within 3 years of realizing an injury was caused by the assault, such as a PTSD diagnosis, whichever is later.'],
+        ['Public entities', 'Claims against a public school or agency may involve extra early steps. Talk to us soon.'],
+      ]},
+      { label: 'I was under 18', rules: [
+        ['No deadline', 'For childhood sexual abuse on or after January 1, 2024, California has removed the time limit to file.'],
+        ['Before 2024: until age 40', 'For earlier abuse, generally until age 40, or 5 years from discovering the injury, whichever is later.'],
+        ['It’s never too early to ask', 'Parents can file on a child’s behalf. Evidence is easier to preserve when you start sooner.'],
+      ]},
+    ];
+    return {
+      situations: S.map(([id, title, copy, who], i) => ({ id, anchor: 'Situation.dc.html?s=' + id, page: 'Situation.dc.html?s=' + id, title, copy, who, num: '0' + (i + 1) })),
+      ages: ages.map((g, i) => ({ label: g.label, on: i === this.state.age, bg: i === this.state.age ? '#2a2320' : 'transparent', fg: i === this.state.age ? '#f7f2ec' : '#2a2320', pick: () => this.setState({ age: i }) })),
+      rules: ages[this.state.age].rules.map(([big, copy]) => ({ big, copy })),
+    };
+  }
+}
+</script>
+</body>
+</html>

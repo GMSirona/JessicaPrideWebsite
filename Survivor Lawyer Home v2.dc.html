@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+<meta name="ext-resource-dependency" content="assets/hero-web.mp4">
+<meta name="ext-resource-dependency" content="assets/sit-schools.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-faith.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-medical.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-travel.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-trafficking.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-workplace.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-prison.jpg">
+<meta name="ext-resource-dependency" content="assets/sit-childhood.jpg">
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2a2320"></rect><text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-style="italic" fill="#e2673e">JP</text></svg></template>
+
+<dc-import name="Site Header" active="" hint-size="100%,84px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="position: relative; width: 100%; min-height: clamp(580px, 84vh, 840px); overflow: hidden; background: #2a2320; display: flex; flex-direction: column;">
+    <video src="assets/hero-web.mp4" preload="auto" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" data-hero-video="1" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></video>
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(42,35,32,0.86) 0%, rgba(42,35,32,0.62) 38%, rgba(42,35,32,0.12) 70%, rgba(42,35,32,0) 100%), linear-gradient(0deg, rgba(42,35,32,0.9) 0%, rgba(42,35,32,0) 30%);"></div>
+    <div style="position: relative; flex: 1; width: 100%; max-width: 1320px; margin: 0 auto; padding: clamp(48px, 7vw, 96px) clamp(20px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: clamp(18px, 2vw, 26px);">
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 6.4vw, 96px); line-height: 0.94; letter-spacing: -0.02em; text-shadow: 0 2px 24px rgba(0,0,0,0.35);">I <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 5px; text-underline-offset: 14px;">believe</em> you.</h1>
+      <p style="margin: 0; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; max-width: 40ch; color: #f2ebe3; text-shadow: 0 1px 12px rgba(0,0,0,0.4);">Survivor-led firm. <strong style="color: #fff; font-weight: 600;">$116M for FCI Dublin survivors.</strong> Twenty years holding abusers and institutions accountable, nationwide.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="#reach-out" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 17px 28px; font-size: 16px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">Talk privately →</a>
+        <a href="#heal" style="border: 1px solid #f7f2ec; color: #f7f2ec; background: rgba(42,35,32,0.35); text-decoration: none; font-weight: 500; padding: 16px 26px; font-size: 16px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #f7f2ec; color: #2a2320;">I’m not ready yet</a>
+      </div>
+      <span style="font-size: 14px; line-height: 22px; color: #e9e1d8; max-width: 48ch;">Free and confidential. You only need a first name. Call or text <a href="tel:6195168166" style="color: #fff; white-space: nowrap;">619-516-8166</a>.</span>
+    </div>
+    <div style="position: relative; width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(24px, 3vw, 40px); box-sizing: border-box;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: 1px solid rgba(247,242,236,0.35);">
+        <sc-for list="{{ proof }}" as="p" hint-placeholder-count="4">
+          <div style="padding: 20px 20px 4px 0; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; line-height: 1.1; color: #fff;">{{ p.big }}</span>
+            <span style="font-size: 13px; line-height: 19px; color: #e0d7cd;">{{ p.small }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+<section id="what-happened" style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px 64px; align-items: end; margin-bottom: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">WHAT HAPPENED TO YOU</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1;">Wherever it happened, someone should answer for it.</h2>
+    </div>
+    <p style="margin: 0; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.55; color: #3a302b; max-width: 40ch; text-wrap: balance;">Most cases aren’t only about one person. They’re about the school, church, company or facility that let it happen.</p>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1px; background: #d6cabe; border: 1px solid #d6cabe;">
+    
+      <a href="Situation.dc.html?s=schools" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-schools.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Schools</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Teachers, coaches, campuses</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=faith" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-faith.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Churches &amp; faith</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Clergy and religious organizations</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=medical" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-medical.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Doctors &amp; care facilities</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Medical providers and treatment centers</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=travel" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-travel.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Rideshare &amp; travel</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Uber, Lyft, Airbnb, airlines</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=trafficking" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-trafficking.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Hotels &amp; trafficking</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Properties that looked away</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=workplace" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-workplace.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Workplace</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Supervisors, coworkers, employers</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=prison" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-prison.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Prisons &amp; jails</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>Including FCI Dublin</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+      <a href="Situation.dc.html?s=childhood" style="background: #f7f2ec; text-decoration: none; display: flex; flex-direction: column; overflow: hidden;" style-hover="background: #fff; color: #2a2320;">
+        <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #2a2320; position: relative;">
+          <img src="assets/sit-childhood.jpg" alt="" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease; filter: saturate(0.85);" style-hover="transform: scale(1.06); filter: saturate(1);">
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,32,0) 55%, rgba(42,35,32,0.35) 100%); pointer-events: none;"></div>
+        </div>
+        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; flex: 1;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.08;">Childhood abuse</span>
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; line-height: 21px; color: #6f625a;"><span>For adult survivors, even decades later</span><span style="color: #e2673e;">→</span></span>
+        </div>
+      </a>
+    
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #2a2320) 18%, color-mix(in oklab, #f7f2ec 50%, #2a2320) 50%, color-mix(in oklab, #f7f2ec 15%, #2a2320) 82%, #2a2320 100%);"></div>
+<section id="why" style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 40px clamp(32px, 6vw, 88px); align-items: center;">
+    <div style="aspect-ratio: 16 / 9; background: #1f1a17; position: relative;">
+      <sc-if value="{{ playing }}" hint-placeholder-val="{{ false }}">
+        <iframe referrerPolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MxgsKiGhnNw?autoplay=1&rel=0&playsinline=1" title="Who is Jessica?" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+      </sc-if>
+      <sc-if value="{{ idle }}" hint-placeholder-val="{{ true }}">
+        <button type="button" onClick="{{ play }}" aria-label="Play video" style="all: unset; cursor: pointer; position: absolute; inset: 0;">
+          <img src="https://i.ytimg.com/vi/MxgsKiGhnNw/maxresdefault.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+          <span style="position: absolute; left: 24px; bottom: 24px; background: #e2673e; color: #fff; padding: 14px 22px; font-weight: 500; font-size: 15px;">▶ Who is Jessica?</span>
+        </button>
+      </sc-if>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #d9cec3;">WHY JESSICA</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(40px, 4.4vw, 60px); line-height: 1.02;">A survivor, fighting for survivors.</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 28px; color: #d9cec3; max-width: 50ch;">“What happened to you is not your fault, and I am going to help you get your power back.” Long before #MeToo, Jessica built a firm for one kind of client, and the first California firm with a full-time Survivor Advocate.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px;">
+        <a href="Why%20Jessica.dc.html" style="border: 1px solid #f7f2ec; text-decoration: none; font-weight: 500; padding: 14px 22px;" style-hover="background: #f7f2ec; color: #2a2320;">Meet Jessica</a>
+        <a href="Team.dc.html" style="text-decoration: none; font-weight: 500; padding: 14px 4px;" style-hover="color: #f29a78;">The team &amp; Survivor Advocate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+<section style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px);">
+  <span style="display: block; font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600; margin-bottom: 16px;">HOW IT WORKS</span>
+  <h2 style="margin: 0 0 40px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1;">Three steps. Always on your terms.</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 40px;">
+    <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+      <div style="display: flex; flex-direction: column; gap: 18px; border-top: 2px solid #2a2320; padding-top: 28px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(56px, 5vw, 72px); line-height: 1; color: #e2673e;">{{ s.num }}</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 3vw, 42px); font-weight: 600; line-height: 1.05;">{{ s.title }}</span>
+        <span style="font-size: clamp(18px, 1.4vw, 20px); line-height: 1.6; color: #5b4f48;">{{ s.copy }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px clamp(32px, 6vw, 88px);">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #6f625a;">RESULTS</span>
+      <sc-for list="{{ results }}" as="r" hint-placeholder-count="2">
+        <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #bfb2a6; padding-top: 20px;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 5vw, 72px); font-weight: 600; line-height: 1;">{{ r.big }}</span>
+          <span style="font-size: 16px; line-height: 25px; max-width: 44ch;">{{ r.copy }}</span>
+        </div>
+      </sc-for>
+      <span style="font-size: 12px; line-height: 18px; color: #6f625a; max-width: 56ch;">Prior results do not guarantee a similar outcome. Every case is different.</span>
+      <a href="#" style="align-self: flex-start; font-weight: 500;">See all results →</a>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 28px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #6f625a;">IN THEIR WORDS</span>
+      <blockquote style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(28px, 3vw, 40px); line-height: 1.2;">“{{ quote }}”</blockquote>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <span style="font-size: 13px; letter-spacing: 0.14em; color: #6f625a;">CLIENT OF JESSICA PRIDE, SHARED WITH PERMISSION</span>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" onClick="{{ prev }}" aria-label="Previous" style="all: unset; cursor: pointer; border: 1px solid #2a2320; padding: 10px 18px;" style-hover="background: #2a2320; color: #f7f2ec;">←</button>
+          <button type="button" onClick="{{ next }}" aria-label="Next" style="all: unset; cursor: pointer; border: 1px solid #2a2320; padding: 10px 18px;" style-hover="background: #2a2320; color: #f7f2ec;">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #f7f2ec) 18%, color-mix(in oklab, #ebe2d8 50%, #f7f2ec) 50%, color-mix(in oklab, #ebe2d8 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+<section id="heal" style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px);">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px 64px; align-items: end; margin-bottom: 36px;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">HEAL &amp; LEARN · FREE</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1;">Not ready to talk? <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 3px; text-underline-offset: 9px;">Start here.</em></h2>
+    </div>
+    <p style="margin: 0; font-size: 17px; line-height: 28px; color: #5b4f48; max-width: 52ch;">Short calming videos for right now, developed with Jessica’s Sirona Healing Center. No account needed, just press play.</p>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
+    <sc-for list="{{ feelings }}" as="f" hint-placeholder-count="6">
+      <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="all: unset; cursor: pointer; padding: 11px 20px; border-radius: 99px; font-size: 15px; font-weight: 500; border: 1px solid #2a2320; background: {{ f.bg }}; color: {{ f.fg }};" style-hover="border-color: #e2673e;">{{ f.label }}</button>
+    </sc-for>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px;">
+    <sc-for list="{{ careList }}" as="v" hint-placeholder-count="4">
+      <a href="{{ v.url }}" style="background: #2a2320; color: #f7f2ec; padding: 26px; min-height: 190px; text-decoration: none; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;" style-hover="background: #3a302b; color: #f7f2ec;">
+        <span style="display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.14em; color: #bfb2a6;"><span>▶ {{ v.min }}</span><span>{{ v.cat }}</span></span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.05;">{{ v.title }}</span><span style="font-size: 14px; line-height: 21px; color: #d9cec3;">{{ v.copy }}</span></span>
+      </a>
+    </sc-for>
+  </div>
+  <div style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px;">
+    <sc-for list="{{ library }}" as="l" hint-placeholder-count="5">
+      <a href="{{ l.href }}" style="background: #f7f2ec; border: 1px solid #d6cabe; padding: 20px 22px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;" style-hover="background: #fff; color: #2a2320; border-color: #2a2320;"><span style="font-weight: 600; font-size: 16px;">{{ l.title }}</span><span style="font-size: 14px; color: #6f625a;">{{ l.copy }}</span></a>
+    </sc-for>
+  </div>
+  <div style="margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px;">
+    <a href="Heal%20and%20Learn.dc.html" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; font-size: 16px; padding: 16px 26px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #c9532c; color: #fff;">See all free resources for survivors →</a>
+    <span style="font-size: 15px; color: #5b4f48;">Videos, guides, hotlines and reading. No sign-up needed.</span>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section id="attorneys" style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px clamp(32px, 6vw, 88px); align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">FOR ATTORNEYS</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(38px, 4vw, 56px); line-height: 1.04;"><span style="display: block;">Have a survivor client?</span><span style="display: block; font-style: italic; font-weight: 500;">Refer or <span style="white-space: nowrap;">co‑counsel</span> with Jessica.</span></h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start;">
+      <p style="margin: 0; font-size: 18px; line-height: 29px; color: #5b4f48; max-width: 50ch;">Trauma-informed representation from intake to trial, with a full-time Survivor Advocate supporting your client throughout. Co-founder of the AAJ Sexual Assault Litigation Group.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="Attorneys.dc.html" style="background: #2a2320; color: #f7f2ec; text-decoration: none; font-weight: 500; font-size: 16px; padding: 16px 24px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="background: #e2673e; color: #fff;">Refer a case →</a>
+        <a href="tel:6195168166" style="border: 1px solid #2a2320; text-decoration: none; font-weight: 500; font-size: 16px; padding: 15px 22px; flex: 1 1 220px; max-width: 360px; box-sizing: border-box; text-align: center;" style-hover="border-color: #e2673e;">Call 619-516-8166</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #fff) 18%, color-mix(in oklab, #ebe2d8 50%, #fff) 50%, color-mix(in oklab, #ebe2d8 15%, #fff) 82%, #fff 100%);"></div>
+<section id="reach-out" style="background: #fff;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 48px clamp(32px, 6vw, 96px);">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">REACH OUT</span>
+      <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1.04; text-wrap: balance;"><span style="display: block;">Whenever you’re ready.</span><span style="display: block; font-style: italic; font-weight: 500;">However feels safe.</span></h2>
+      <p style="margin: 0; font-size: 17px; line-height: 28px; color: #5b4f48; max-width: 46ch;">What you share stays private. We will never contact you in a way you didn’t choose, and there is no cost or obligation.</p>
+      <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 8px; font-size: 16px; line-height: 24px;">
+        <a href="tel:6195168166" style="text-decoration: none; display: flex; flex-direction: column;"><span style="font-size: 12px; letter-spacing: 0.16em; color: #6f625a;">CALL OR TEXT</span><span style="font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600;">619-516-8166</span></a>
+        <span style="color: #5b4f48;">The Pride Law Firm · 2831 Camino Del Rio S., Suite 104, San Diego, CA 92108</span>
+        <a href="#attorneys" style="font-size: 14px; color: #6f625a;">Attorneys: refer or co-counsel a case →</a>
+      </div>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display: flex; flex-direction: column; gap: 18px; background: #f7f2ec; padding: clamp(24px, 3vw, 40px);">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">First name or initials<input placeholder="A nickname is fine" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 14px; font-weight: 500;">Safest way to reach you</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <sc-for list="{{ methods }}" as="m" hint-placeholder-count="3">
+              <button type="button" onClick="{{ m.pick }}" aria-pressed="{{ m.on }}" style="all: unset; cursor: pointer; padding: 10px 18px; border: 1px solid #2a2320; font-size: 15px; background: {{ m.bg }}; color: {{ m.fg }};">{{ m.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">{{ contactLabel }}<input required placeholder="{{ contactHint }}" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Best time to reach you (optional)<input placeholder="e.g. weekdays after 6pm" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff;"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500;">Anything you’d like us to know (optional)<textarea rows="3" placeholder="As much or as little as you want" style="font: inherit; font-weight: 400; font-size: 16px; padding: 13px 14px; border: 1px solid #cfc3b7; background: #fff; resize: vertical;"></textarea></label>
+        <span style="font-size: 14px; line-height: 21px; color: #5b4f48; border-left: 2px solid #e2673e; padding-left: 12px;">Private and confidential. We only use this to reply to you.</span>
+        <button type="submit" style="all: unset; cursor: pointer; background: #e2673e; color: #fff; font-weight: 500; font-size: 16px; padding: 16px 24px;" style-hover="background: #c9532c;">Send privately →</button>
+        <label style="display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 19px; color: #6f625a;"><input type="checkbox" style="margin-top: 2px; accent-color: #e2673e;">Optional: send me text updates from The Pride Law Firm. Message and data rates may apply.</label>
+      </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="background: #f7f2ec; padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 16px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 600; line-height: 1.05;">Thank you. You did something brave.</span>
+        <span style="font-size: 16px; line-height: 26px; color: #5b4f48;">A member of Jessica’s team will reach you by <strong>{{ methodName }}</strong> by the next business day, only the way you chose.</span>
+        <span style="font-size: 14px; letter-spacing: 0.16em; color: #6f625a; margin-top: 8px;">WHILE YOU WAIT</span>
+        <a href="https://survivorlawyer.com/video/panic-reset/" style="background: #2a2320; color: #f7f2ec; text-decoration: none; padding: 20px 22px; display: flex; justify-content: space-between; gap: 12px;" style-hover="color: #f7f2ec; background: #3a302b;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600;">▶ Panic Reset · a 3-minute breath</span><span>→</span></a>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #fff 0%, color-mix(in oklab, #fff 85%, #1f1a17) 18%, color-mix(in oklab, #fff 50%, #1f1a17) 50%, color-mix(in oklab, #fff 15%, #1f1a17) 82%, #1f1a17 100%);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { q: 0, sent: false, method: 0, playing: false, feel: 'Panic & breathing' };
+  componentDidMount() {
+    this.onKey = e => { if (e.key === 'Escape') this.exit(); };
+    window.addEventListener('keydown', this.onKey);
+    const v = document.querySelector('[data-hero-video]');
+    if (v) {
+      v.muted = true; v.loop = true;
+      v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); });
+      v.play().catch(() => {});
+    }
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onKey); }
+  exit() { window.location.replace('https://www.google.com/search?q=weather'); }
+  renderVals() {
+    const quotes = [
+      'A forever thank you for believing in me and helping me through what I thought was going to kill me.',
+      'Thank you Jessica and Christy, for giving me a voice when I felt mine didn’t matter.',
+      'I’m graduating with a finance degree. I just wanted to say thank you for fighting for me.',
+      'She is always easy to talk to and very approachable. Always directly available.',
+      'When I opened the self-care package and read the letter from you all, it felt like a hug came right out of the box.',
+    ];
+    const care = [
+      ['Panic & breathing', 'Panic Reset', 'Reset your nervous system with your breath', '3 min', 'panic-reset'],
+      ['Panic & breathing', 'Box Breathing', 'A four-count pattern to slow your heart rate', '3 min', 'box-breathing'],
+      ['Panic & breathing', '4-7-8 Breath', 'A longer exhale for clarity and grounding', '3 min', '4-7-8-breath'],
+      ['Panic & breathing', 'Hand on Heart', 'Breath and affirmations for self-compassion', '1 min', 'hand-on-heart'],
+      ['Numbness', 'Dissociation Reset', 'Grounding with categories and counting', '2 min', 'dissociation-reset'],
+      ['Numbness', 'Cold Water + Sensory Return', 'A quick reset using the sensation of cold', '2 min', 'cold-water-sensory-return'],
+      ['Numbness', 'Body Re-entry', 'Touch and pressure to reconnect', '6 min', 'body-re-entry-hands-feet-pressure'],
+      ['Shame', 'Shame Spiral Interrupt', 'Break the cycle of shame', '2 min', 'shame-spiral-interrupt'],
+      ['Sleep', 'Nightmare Reset + Downshift', 'Calm your system after nightmares', '8 min', 'nightmare-reset-and-downshift'],
+      ['Sleep', 'Sleep Body Scan', 'Release tension and find rest', '4 min', 'sleep-body-scan-for-survivors'],
+      ['Triggered by my case', 'After Seeing Their Name', 'For when you’ve been triggered', '2 min', 'after-seeing-their-name'],
+      ['Triggered by my case', 'Safety Anchoring', 'Ground through your feet, back or heart', '2 min', 'safety-anchoring-somatic'],
+    ].map(([cat, title, copy, min, slug]) => ({ cat, title, copy, min, url: 'https://survivorlawyer.com/video/' + slug + '/' }));
+    const cats = [...new Set(care.map(c => c.cat))];
+    const methods = [
+      { label: 'Text', name: 'text', field: 'Phone number for texts', hint: 'Only used to text you' },
+      { label: 'Call', name: 'phone', field: 'Phone number', hint: 'Only used to call you' },
+      { label: 'Email', name: 'email', field: 'Email address', hint: 'A private email is best' },
+    ];
+    const m = methods[this.state.method], q = this.state.q;
+    return {
+      quickExit: () => this.exit(),
+      proof: [
+        { big: '$116M', small: 'FCI Dublin survivors · Liaison Counsel, 2024' },
+        { big: 'AAJ co-founder', small: 'Sexual Assault Litigation Group · 7 years on the Board of Governors' },
+        { big: '2025 Advocate of the Year', small: 'Consumer Attorneys of San Diego' },
+        { big: 'Trial Magazine', small: 'Featured for trauma-informed advocacy, April 2025' },
+      ],
+      situations: [
+        ['Schools', 'Teachers, coaches, campuses'], ['Churches & faith', 'Clergy and religious organizations'],
+        ['Doctors & care facilities', 'Medical providers and treatment centers'], ['Rideshare & travel', 'Uber, Lyft, Airbnb, airlines'],
+        ['Hotels & trafficking', 'Properties that looked away'], ['Workplace', 'Supervisors, coworkers, employers'],
+        ['Prisons & jails', 'Including FCI Dublin'], ['Childhood abuse', 'For adult survivors, even decades later'],
+      ].map(([title, copy], i) => ({ title, copy, href: 'Situation.dc.html?s=' + ['schools','faith','medical','travel','trafficking','workplace','prison','childhood'][i],
+        key: ['schools','faith','medical','travel','trafficking','workplace','prison','childhood'][i] })),
+      steps: [
+        ['A private conversation', 'Call, text or send a message with just a first name. You share only what you’re ready to, free, with no obligation.'],
+        ['A plan on your terms', 'Jessica explains your rights, your deadlines and your options in plain language. You decide what happens next.'],
+        ['We handle the rest', 'The firm takes on the investigation, the institution and the courtroom, with a Survivor Advocate beside you throughout.'],
+      ].map(([title, copy], i) => ({ num: '0' + (i + 1), title, copy })),
+      results: [
+        { big: '$116M', copy: 'Settlement for survivors of abuse at FCI Dublin federal prison. Jessica served as Liaison Counsel.' },
+        { big: 'Record', copy: 'One of the largest single-plaintiff settlements in California in a school child molestation case.' },
+      ],
+      quote: quotes[q],
+      prev: () => this.setState({ q: (q + quotes.length - 1) % quotes.length }),
+      next: () => this.setState({ q: (q + 1) % quotes.length }),
+      playing: this.state.playing, idle: !this.state.playing, play: () => this.setState({ playing: true }),
+      feelings: cats.map(c => ({ label: c, on: c === this.state.feel, bg: c === this.state.feel ? '#2a2320' : 'transparent', fg: c === this.state.feel ? '#f7f2ec' : '#2a2320', pick: () => this.setState({ feel: c }) })),
+      careList: care.filter(c => c.cat === this.state.feel),
+      library: [
+        { title: 'Know your rights', copy: 'Deadlines, civil vs. criminal', href: 'Heal%20and%20Learn.dc.html#rights' }, { title: 'Common questions', copy: 'Plain answers, no jargon', href: 'Heal%20and%20Learn.dc.html#faq' },
+        { title: 'Sirona Healing Center', copy: 'Jessica’s sister healing practice', href: 'Why%20Jessica.dc.html' }, { title: 'Help a loved one', copy: 'What to say, how to support', href: 'Who%20We%20Help.dc.html#loved-ones' },
+        { title: 'Full healing library', copy: 'Free 12-month curriculum · register', href: 'Heal%20and%20Learn.dc.html#self-care' },
+      ],
+      methods: methods.map((x, i) => ({ label: x.label, on: i === this.state.method, bg: i === this.state.method ? '#2a2320' : '#fff', fg: i === this.state.method ? '#f7f2ec' : '#2a2320', pick: () => this.setState({ method: i }) })),
+      contactLabel: m.field, contactHint: m.hint, methodName: m.name,
+      sent: this.state.sent, notSent: !this.state.sent,
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

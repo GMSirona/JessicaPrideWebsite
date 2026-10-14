@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f7f2ec; color: #2a2320; font-family: 'Jost', system-ui, sans-serif; text-wrap: pretty; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:hover { color: #e2673e; }
+*:focus-visible { outline: 2px solid #e2673e; outline-offset: 3px; }
+</style>
+</helmet>
+<dc-import name="Site Header" active="heal" hint-size="100%,84px" style="position: sticky; top: 0; z-index: 20; display: block;"></dc-import>
+
+<header style="background: #2a2320; color: #f7f2ec;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: clamp(64px, 8vw, 112px) clamp(20px, 4vw, 48px) 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 32px 64px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <span style="align-self: flex-start; background: #f7f2ec; color: #2a2320; font-size: 12px; letter-spacing: 0.16em; padding: 7px 14px; border-radius: 99px;">● FREE · NO SIGN-UP</span>
+      <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(52px, 6.4vw, 96px); line-height: 0.96; letter-spacing: -0.015em;">Heal at your own <em style="font-weight: 500; text-decoration: underline; text-decoration-color: #ef7a52; text-decoration-thickness: 4px; text-underline-offset: 12px;">pace.</em></h1>
+      <p style="margin: 0; font-size: 19px; line-height: 30px; max-width: 46ch; color: #d9cec3;">Calming videos, plain-language answers and trusted reading, whether or not you ever take legal action.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 1px; background: #54473f; border: 1px solid #54473f;">
+      <a href="tel:988" style="background: #2a2320; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 8px;" style-hover="background: #3a302b; color: #f7f2ec;"><span style="font-size: 12px; letter-spacing: 0.14em; color: #bfb2a6;">IN CRISIS</span><span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 3.4vw, 48px); font-weight: 600; line-height: 1; white-space: nowrap;">988</span></a>
+      <a href="tel:18006564673" style="background: #2a2320; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 8px;" style-hover="background: #3a302b; color: #f7f2ec;"><span style="font-size: 12px; letter-spacing: 0.14em; color: #bfb2a6;">24-HOUR HOTLINE</span><span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 3.4vw, 48px); font-weight: 600; line-height: 1; white-space: nowrap;">800-656-4673</span></a>
+      <a href="tel:911" style="background: #2a2320; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 8px;" style-hover="background: #3a302b; color: #f7f2ec;"><span style="font-size: 12px; letter-spacing: 0.14em; color: #bfb2a6;">EMERGENCY</span><span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 3.4vw, 48px); font-weight: 600; line-height: 1; white-space: nowrap;">911</span></a>
+      <a href="tel:6195168166" style="background: #2a2320; padding: 24px; text-decoration: none; display: flex; flex-direction: column; gap: 8px;" style-hover="background: #3a302b; color: #f7f2ec;"><span style="font-size: 12px; letter-spacing: 0.14em; color: #f29a78;">JESSICA PRIDE · CALL OR TEXT</span><span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 3.4vw, 48px); font-weight: 600; line-height: 1; white-space: nowrap;">619-516-8166</span></a>
+    </div>
+  </div>
+</header>
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #2a2320 0%, color-mix(in oklab, #2a2320 85%, #f7f2ec) 18%, color-mix(in oklab, #2a2320 50%, #f7f2ec) 50%, color-mix(in oklab, #2a2320 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+
+<section id="self-care" style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px);">
+  <span style="display: block; text-align: center; font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600; margin-bottom: 16px;">SELF-CARE VIDEOS · WITH SIRONA HEALING CENTER</span>
+  <h2 style="margin: 0 0 28px; text-align: center; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 64px); line-height: 1;">What are you feeling right now?</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px;">
+    <sc-for list="{{ feelings }}" as="f" hint-placeholder-count="7">
+      <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="all: unset; cursor: pointer; padding: 11px 20px; border-radius: 99px; font-size: 15px; font-weight: 500; border: 1px solid #2a2320; background: {{ f.bg }}; color: {{ f.fg }};" style-hover="border-color: #e2673e;">{{ f.label }}</button>
+    </sc-for>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px;">
+    <sc-for list="{{ careList }}" as="v" hint-placeholder-count="4">
+      <a href="{{ v.url }}" style="background: #2a2320; color: #f7f2ec; padding: 26px; min-height: 190px; text-decoration: none; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;" style-hover="background: #3a302b; color: #f7f2ec;">
+        <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 12px; letter-spacing: 0.14em; color: #bfb2a6;"><span>▶ {{ v.min }}</span><span>{{ v.cat }}</span></span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; line-height: 1.05;">{{ v.title }}</span><span style="font-size: 14px; line-height: 21px; color: #d9cec3;">{{ v.copy }}</span></span>
+      </a>
+    </sc-for>
+  </div>
+  <div style="margin-top: 16px; background: #ebe2d8; padding: 26px 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
+    <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600;">The full healing library is free.</span><span style="font-size: 15px; color: #5b4f48;">Legal journey videos, a 12-month healing curriculum and guided practices.</span></span>
+    <a href="https://survivorlawyer.com/community-registration/" style="background: #e2673e; color: #fff; text-decoration: none; font-weight: 500; padding: 14px 22px;" style-hover="background: #c9532c; color: #fff;">Register free →</a>
+  </div>
+</section>
+
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px);">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px;">
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(38px, 4vw, 54px); line-height: 1;">Watch with Jessica</h2>
+    <a href="https://www.youtube.com/@jessicapridesurvivorlawyer" style="font-weight: 500;">Subscribe on YouTube →</a>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 20px;">
+    <sc-for list="{{ ytVideos }}" as="y" hint-placeholder-count="2">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="aspect-ratio: 16 / 9; background: #2a2320; position: relative;">
+          <sc-if value="{{ y.playing }}" hint-placeholder-val="{{ false }}">
+            <iframe referrerPolicy="strict-origin-when-cross-origin" src="{{ y.embed }}" title="{{ y.title }}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+          </sc-if>
+          <sc-if value="{{ y.idle }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ y.play }}" aria-label="Play video" style="all: unset; cursor: pointer; position: absolute; inset: 0;">
+              <img src="{{ y.thumb }}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+              <span style="position: absolute; left: 20px; bottom: 20px; background: #e2673e; color: #fff; padding: 13px 20px; font-weight: 500; font-size: 15px;">▶ Play</span>
+            </button>
+          </sc-if>
+        </div>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600;">{{ y.title }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 14px;">
+    <sc-for list="{{ shorts }}" as="s" hint-placeholder-count="5">
+      <a href="https://www.youtube.com/@jessicapridesurvivorlawyer" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none;">
+        <div style="aspect-ratio: 9 / 16; overflow: hidden; background: #2a2320;"><img src="{{ s.img }}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover;"></div>
+        <span style="font-size: 15px; font-weight: 500;">{{ s.title }}</span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section id="rights" style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px);">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px;"><span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">KNOW YOUR RIGHTS</span><a href="Articles.dc.html" style="font-weight: 600;">Read all articles &amp; guides →</a></div>
+    <h2 style="margin: 0 0 32px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 60px); line-height: 1;">Civil and criminal are two different paths.</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px;">
+      <div style="background: #f7f2ec; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600;">Criminal case</span>
+        <span style="font-size: 16px; line-height: 26px; color: #5b4f48;">Brought by the state to punish the abuser. Prosecutors decide whether to file, and you are a witness.</span>
+      </div>
+      <div style="background: #2a2320; color: #f7f2ec; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600;">Civil case, what we do</span>
+        <span style="font-size: 16px; line-height: 26px; color: #d9cec3;">Brought by you, against the abuser and the institutions that enabled them. It can bring accountability, policy change and compensation for therapy, lost income and pain, with or without a criminal case.</span>
+      </div>
+      <a href="What%20Happened.dc.html#deadlines" style="background: #f7f2ec; padding: 28px; display: flex; flex-direction: column; gap: 10px; text-decoration: none;" style-hover="background: #fff;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600;">Is it too late to file?</span>
+        <span style="font-size: 16px; line-height: 26px; color: #5b4f48;">Check California’s deadlines in plain language.</span>
+        <span style="font-weight: 600; color: #e2673e;">See the deadlines →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #f7f2ec) 18%, color-mix(in oklab, #ebe2d8 50%, #f7f2ec) 50%, color-mix(in oklab, #ebe2d8 15%, #f7f2ec) 82%, #f7f2ec 100%);"></div>
+<section id="faq" style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 104px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 32px clamp(32px, 6vw, 96px);">
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <span style="font-size: 13px; letter-spacing: 0.2em; color: #e2673e; font-weight: 600;">COMMON QUESTIONS</span>
+    <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 4.6vw, 60px); line-height: 1;">There are no wrong questions.</h2>
+  </div>
+  <div style="border-top: 1px solid #2a2320;">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+      <div style="border-bottom: 1px solid #d6cabe;">
+        <button type="button" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; line-height: 1.2;" style-hover="color: #e2673e;"><span>{{ f.q }}</span><span style="color: #e2673e;">{{ f.icon }}</span></button>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+          <p style="margin: 0 0 24px; font-size: 16px; line-height: 27px; color: #5b4f48; max-width: 62ch;">{{ f.a }}</p>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height: clamp(54px, 13.6vw, 180px); background: linear-gradient(180deg, #f7f2ec 0%, color-mix(in oklab, #f7f2ec 85%, #ebe2d8) 18%, color-mix(in oklab, #f7f2ec 50%, #ebe2d8) 50%, color-mix(in oklab, #f7f2ec 15%, #ebe2d8) 82%, #ebe2d8 100%);"></div>
+<section id="books" style="background: #ebe2d8;">
+  <div style="max-width: 1320px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 48px) clamp(64px, 8vw, 96px);">
+    <span style="display: block; font-size: 13px; letter-spacing: 0.2em; color: #6f625a; margin-bottom: 12px;">RECOMMENDED READING</span>
+    <h2 style="margin: 0 0 28px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 48px); line-height: 1;">Books our team recommends</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 12px;">
+      <sc-for list="{{ books }}" as="b" hint-placeholder-count="13">
+        <a href="{{ b.url }}" style="background: #f7f2ec; border: 1px solid #d6cabe; padding: 20px; text-decoration: none; display: flex; flex-direction: column; gap: 6px; min-height: 110px;" style-hover="background: #fff; border-color: #2a2320;">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600; line-height: 1.1;">{{ b.title }}</span>
+          <span style="font-size: 14px; color: #6f625a;">{{ b.author }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<div aria-hidden="true" style="height: clamp(78px, 19.7vw, 260px); background: linear-gradient(180deg, #ebe2d8 0%, color-mix(in oklab, #ebe2d8 85%, #1f1a17) 18%, color-mix(in oklab, #ebe2d8 50%, #1f1a17) 50%, color-mix(in oklab, #ebe2d8 15%, #1f1a17) 82%, #1f1a17 100%);"></div>
+<dc-import name="Site Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { feel: 'Panic & breathing', open: 0, yt: null };
+  renderVals() {
+    const care = [
+      ['Panic & breathing', 'Panic Reset', 'Reset your nervous system with your breath', '3 min', 'panic-reset'],
+      ['Panic & breathing', 'Box Breathing', 'A four-count pattern to slow your heart rate', '3 min', 'box-breathing'],
+      ['Panic & breathing', '4-7-8 Breath', 'A longer exhale for clarity and grounding', '3 min', '4-7-8-breath'],
+      ['Panic & breathing', 'Hand on Heart', 'Breath and affirmations for self-compassion', '1 min', 'hand-on-heart'],
+      ['Numbness', 'Dissociation Reset', 'Grounding with categories and counting', '2 min', 'dissociation-reset'],
+      ['Numbness', 'Cold Water + Sensory Return', 'A quick reset using the sensation of cold', '2 min', 'cold-water-sensory-return'],
+      ['Numbness', 'Body Re-entry', 'Touch and pressure to reconnect', '6 min', 'body-re-entry-hands-feet-pressure'],
+      ['Shame', 'Shame Spiral Interrupt', 'Break the cycle of shame', '2 min', 'shame-spiral-interrupt'],
+      ['Sleep', 'Nightmare Reset + Downshift', 'Calm your system after nightmares', '8 min', 'nightmare-reset-and-downshift'],
+      ['Sleep', 'Sleep Body Scan', 'Release tension and find rest', '4 min', 'sleep-body-scan-for-survivors'],
+      ['Triggered by my case', 'After Seeing Their Name', 'For when you’ve been triggered', '2 min', 'after-seeing-their-name'],
+      ['Grounding', 'Safety Anchoring', 'Ground through your feet, back or heart', '2 min', 'safety-anchoring-somatic'],
+      ['Sound healing', 'Sound Healing with Shelly Reef', 'Harp, crystal bowl and meditation with Jessica', '30+ min', null],
+    ].map(([cat, title, copy, min, slug]) => ({ cat, title, copy, min, url: slug ? 'https://survivorlawyer.com/video/' + slug + '/' : 'https://www.youtube.com/watch?v=tC_AOpZbDg8' }));
+    const cats = [...new Set(care.map(c => c.cat))];
+    const yt = [{ id: 'sg0ggS6wNrU', title: 'Hope for survivors' }, { id: 'tC_AOpZbDg8', title: 'Sound healing with Shelly Reef' }];
+    const faq = [
+      ['What defines sexual assault?', 'Any sexual contact or behavior that happens without your clear, explicit consent. It doesn’t need to involve force, and it doesn’t matter who the other person is.'],
+      ['Does a consultation cost anything?', 'No. Talking with us is free and confidential, and it doesn’t commit you to anything.'],
+      ['Do I have to report to the police first?', 'No. A civil case is separate from a criminal one. You can pursue one, both, or neither.'],
+      ['Will my name be public?', 'Many survivors file as “Jane Doe” or “John Doe.” We’ll talk through how to protect your privacy.'],
+      ['How do you get paid?', 'On contingency, we’re paid only if we recover money for you. No upfront cost.'],
+      ['What if I’m not sure my experience “counts”?', 'That’s one of the most common reasons people reach out. We’ll help you understand your options with no pressure.'],
+    ];
+    return {
+      feelings: cats.map(c => ({ label: c, on: c === this.state.feel, bg: c === this.state.feel ? '#2a2320' : 'transparent', fg: c === this.state.feel ? '#f7f2ec' : '#2a2320', pick: () => this.setState({ feel: c }) })),
+      careList: care.filter(c => c.cat === this.state.feel),
+      ytVideos: yt.map(v => ({ ...v, thumb: 'https://i.ytimg.com/vi/' + v.id + '/maxresdefault.jpg', embed: 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1', playing: this.state.yt === v.id, idle: this.state.yt !== v.id, play: () => this.setState({ yt: v.id }) })),
+      shorts: [['assets/p20.jpg', 'New here? Start here.'], ['assets/p19.jpg', 'It is free. Use it.'], ['assets/p04.jpg', 'Heal from the inside'], ['assets/p18.jpg', 'Working with Jessica'], ['assets/p08.jpg', 'Trauma-informed lawyering']].map(([img, title]) => ({ img, title })),
+      faqs: faq.map(([q, a], i) => ({ q, a, open: this.state.open === i, icon: this.state.open === i ? '−' : '+', toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })) })),
+      books: [
+        ['Unbound', 'Tarana Burke', 'https://www.amazon.com/dp/B099MK8N7D/'], ['What Is a Girl Worth?', 'Rachael Denhollander', 'https://www.amazon.com/dp/B07PLMXL1F/'],
+        ['The Socially Skilled Child Molester', 'Carla Van Dam', 'https://www.amazon.com/dp/0789028069/'], ['Be Mighty', 'Jill Stoddard', 'https://www.amazon.com/dp/1684034418/'],
+        ['Journey to the Heart', 'Svava Brooks', 'https://www.amazon.com/dp/B01MSZN6PU/'], ['The Body Keeps the Score', 'Bessel van der Kolk', 'https://www.amazon.com/dp/0143127748/'],
+        ['Entering the Thriver Zone', 'Susan M. Omilian', 'https://www.amazon.com/dp/0984250921/'], ['Thriving After Trauma', 'Shari Botwin', 'https://www.amazon.com/dp/1538125609/'],
+        ['The Deepest Well', 'Nadine Burke Harris', 'https://www.amazon.com/dp/132850266X/'], ['Beyond Betrayal', 'Richard B. Gartner', 'https://www.amazon.com/dp/1630260363/'],
+        ['Victims No Longer', 'Mike Lew', 'https://www.amazon.com/dp/006053026X/'], ['Joining Forces', 'Howard Fradkin', 'https://www.amazon.com/dp/1401941346/'],
+        ['Grief Day by Day', 'Jan Warner', 'https://www.amazon.com/dp/1641521317/'],
+      ].map(([title, author, url]) => ({ title, author, url })),
+    };
+  }
+}
+</script>
+</body>
+</html>
